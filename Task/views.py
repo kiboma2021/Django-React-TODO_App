@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Task
+from .models import Item
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -10,8 +10,8 @@ from .serializers import TaskSerializer
 @api_view(['GET', 'POST'])
 def MyTasksView(request):
     try:
-        get_task=Task.objects.all()
-    except Task.DoesNotExist:
+        get_task=Item.objects.all()
+    except Item.DoesNotExist:
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
     if request.method == 'GET':
