@@ -20,4 +20,5 @@ from Task import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tasks/', views.MyTasksView),
+    path('tasks/<int:id>/', views.TaskDetailsView),
 ]
