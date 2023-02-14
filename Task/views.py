@@ -22,4 +22,18 @@ def MyTasksView(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
+
+@api_view(['GET','PUT','DELETE'])
+def TaskDetailsView(request,id):
+    try:
+        get_task=Item.objects.get(pk=id)
+    except Item.DoesNotExist:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    if request.method == 'GET':
+        pass
+    elif request.method== 'PUT':
+        pass
+    elif request.method == 'DELETE':
+        pass
     
